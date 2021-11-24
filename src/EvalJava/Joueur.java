@@ -18,6 +18,7 @@ public class Joueur {
 		//valeur de base
 		this.sante = 10;
 		this.experience = 1;
+		System.out.println("*Presentation*");
 	}
 	
 	public Joueur(String nom, int force) {
@@ -28,6 +29,7 @@ public class Joueur {
 		//valeur de base
 		this.sante = 10;
 		this.experience = 1;
+		System.out.println("*Presentation*");
 	}
 	
 	public Joueur(String nom, int force, Arme arme) {
@@ -38,6 +40,7 @@ public class Joueur {
 		//valeur de base
 		this.sante = 10;
 		this.experience = 1;
+		System.out.println("*Presentation*");
 	}
 	
 	//fonctions	
