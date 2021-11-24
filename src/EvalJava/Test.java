@@ -6,10 +6,9 @@ public class Test {
 	
 	//attributs
 	static Random rand = new Random();
-	static Arme arme;
 	
 	public static void main(String[] args) {
-		
+		StartGame startGame = new StartGame();
 		/*
 		//pour utiliser le enum il faut appeler la classe enum dans le constructeur
 		// l'utilisateur choisi son nom, defini son arme de depart, la force est en random ou peut etre choisi par l'utilisateur
@@ -29,7 +28,7 @@ public class Test {
 		Joueur player2 = new Joueur("Mario");
 		
 		//System.out.println(player1 + " \n "+ player2);
-		startGame(player1, player2);
+		startGame.start(player1, player2);
 	}
 
 	//fonctions
@@ -38,22 +37,4 @@ public class Test {
 		return rand.nextInt((max - min) + 1) + min;
 	}
 	
-	public static void startGame(Joueur j1, Joueur j2) {
-		boolean resultB = true;
-		while(resultB) {
-			System.out.println(j1 + " \n "+ j2);
-			j1.attaquerJoueur(j2);
-			
-			if(j1.getSante() == 0) {
-				System.out.println(j1.getNom() + " a perdu, Victoire a "+ j2.getNom());
-				resultB = false;
-			}
-			else if(j2.getSante() == 0) {
-				System.out.println(j2.getNom() + " a perdu, Victoire a "+ j1.getNom());
-				resultB = false;
-			
-			}
-		}
-		
-	}
 }

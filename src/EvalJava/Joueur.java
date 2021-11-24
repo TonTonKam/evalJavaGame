@@ -8,6 +8,7 @@ public class Joueur {
 	private String nom;
 	private int sante, force, experience;
 	private Arme arme;
+	private boolean pouvoir;
 	Random rand = new Random();
 	
 	//constructor
@@ -18,6 +19,7 @@ public class Joueur {
 		//valeur de base
 		this.sante = 10;
 		this.experience = 1;
+		this.pouvoir = false;
 		System.out.println("*Presentation*");
 	}
 	
@@ -29,6 +31,7 @@ public class Joueur {
 		//valeur de base
 		this.sante = 10;
 		this.experience = 1;
+		this.pouvoir = false;
 		System.out.println("*Presentation*");
 	}
 	
@@ -40,6 +43,7 @@ public class Joueur {
 		//valeur de base
 		this.sante = 10;
 		this.experience = 1;
+		this.pouvoir = false;
 		System.out.println("*Presentation*");
 	}
 	
@@ -74,6 +78,8 @@ public class Joueur {
 			this.changerArme();
 			joueur.changerArme();
 		}
+		pouvoirDuCourage();
+		pouvoirDuMal(joueur);
 	}
 
 	//changer arme
@@ -116,6 +122,33 @@ public class Joueur {
         default:
             System.out.println("Vous ramassez rien.");
             return arme;
+		}
+	}
+	
+	//bonus
+	private void pouvoirDuCourage() {
+		int max = 6, min = 1, result = 0;
+		result = rand.nextInt((max - min) + 1) + min;
+		if(this.sante <= 5 && this.pouvoir == false) {
+			if(result == 3) {
+				this.experience += 100;
+				this.pouvoir = true;
+				System.out.println("\n ***Une voie dans votre tête vous dit : Vous avez le courage.* "+ this.nom
+						+ " dispose de + 100 d'experience grace au souvenir de ses combats** \n");
+			}
+		}
+	}
+	
+	private void pouvoirDuMal(Joueur joueur) {
+		int max = 6, min = 1, result = 0;
+		result = rand.nextInt((max - min) + 1) + min;
+		if(joueur.pouvoir == true) {
+			if(result == 3) {
+				this.pouvoir = true;
+				this.force += 90;
+				System.out.println("\n ***"+ this.nom + " a honte de voir "+ joueur.nom + " gagner, "+ this.nom + " a la rage et veux tout casser, il gagne"
+						+ " + 90 de force \n**");
+			}
 		}
 	}
 	
