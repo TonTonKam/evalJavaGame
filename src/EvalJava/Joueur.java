@@ -52,27 +52,27 @@ public class Joueur {
 		if(resultatCombat1 > resultatCombat2) {
 			this.force += 1;
 			joueur.sante -= 1;
-			this.changerArme();
-			joueur.changerArme();
 			System.out.println("Le resultat de la BAGARRE est de "+	resultatCombat1 + " pour "+ this.nom + " et "+ resultatCombat2 +" pour "+joueur.nom 
 					+"\n" +this.nom + " gagne +1 de force et passe a "+ this.force +", tandis que "
 					+ joueur.nom + ", perde -1 de vie, il passe a "+ joueur.sante +". \n ");
+			this.changerArme();
+			joueur.changerArme();
 		}
 		else if(resultatCombat1 < resultatCombat2){
 			joueur.force += 1;
 			this.sante -= 1;
-			joueur.changerArme();
-			this.changerArme();
 			System.out.println("Le resultat de la BAGARRE est de "+	resultatCombat1 + " pour "+ this.nom + " et "+ resultatCombat2 +" pour "+joueur.nom 
 					+ " a un resultat de "+ resultatCombat2 +"\n" +joueur.nom + " gagne +1 de force et passe a "+ joueur.force +", tandis que "
 					+ this.nom + ", perde -1 de vie, il passe a "+ this.sante +". \n ");
+			joueur.changerArme();
+			this.changerArme();
 		}else {
 			this.experience += 1;
 			joueur.experience += 1;
-			this.changerArme();
-			joueur.changerArme();
 			System.out.println("Les 2 jouerus gagne +1 d'experience, "+ this.nom +" passe a "+ this.experience + " et " 
 					+ joueur.nom + " passe a "+ joueur.experience);
+			this.changerArme();
+			joueur.changerArme();
 		}
 	}
 
