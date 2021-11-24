@@ -78,7 +78,7 @@ public class Joueur {
 			this.changerArme();
 			joueur.changerArme();
 		}
-		pouvoirDuCourage();
+		pouvoirDuCourage(joueur);
 		pouvoirDuMal(joueur);
 	}
 
@@ -126,14 +126,23 @@ public class Joueur {
 	}
 	
 	//bonus
-	private void pouvoirDuCourage() {
+	private void pouvoirDuCourage(Joueur joueur) {
 		int max = 6, min = 1, result = 0;
 		result = rand.nextInt((max - min) + 1) + min;
+		
 		if(this.sante <= 5 && this.pouvoir == false) {
-			if(result == 3) {
+			if(result <= 2) {
 				this.experience += 100;
 				this.pouvoir = true;
 				System.out.println("\n ***Une voie dans votre tête vous dit : Vous avez le courage.* "+ this.nom
+						+ " dispose de + 100 d'experience grace au souvenir de ses combats** \n");
+			}
+		}
+		if(joueur.sante <= 5 && joueur.pouvoir == false) {
+			if(result <= 2) {
+				joueur.experience += 100;
+				joueur.pouvoir = true;
+				System.out.println("\n ***Une voie dans votre tête vous dit : Vous avez le courage.* "+ joueur.nom
 						+ " dispose de + 100 d'experience grace au souvenir de ses combats** \n");
 			}
 		}
@@ -142,12 +151,22 @@ public class Joueur {
 	private void pouvoirDuMal(Joueur joueur) {
 		int max = 6, min = 1, result = 0;
 		result = rand.nextInt((max - min) + 1) + min;
-		if(joueur.pouvoir == true) {
-			if(result == 3) {
+		
+		if(joueur.pouvoir == true && this.pouvoir == false) {
+			if(result >= 5) {
 				this.pouvoir = true;
-				this.force += 90;
+				this.force += 95;
 				System.out.println("\n ***"+ this.nom + " a honte de voir "+ joueur.nom + " gagner, "+ this.nom + " a la rage et veux tout casser, il gagne"
-						+ " + 90 de force \n**");
+						+ " + 95 de force \n**");
+			}
+		}
+		if(this.pouvoir == true && this.pouvoir == false) {
+			System.out.println("POUVOIRMAL propre pouvoir "+ this.pouvoir + " chiffre "+ result);
+			if(result >= 5) {
+				joueur.pouvoir = true;
+				joueur.force += 95;
+				System.out.println("\n ***"+ this.nom + " a honte de voir "+ joueur.nom + " gagner, "+ this.nom + " a la rage et veux tout casser, il gagne"
+						+ " + 95 de force \n**");
 			}
 		}
 	}
