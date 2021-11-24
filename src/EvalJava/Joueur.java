@@ -66,7 +66,7 @@ public class Joueur {
 			joueur.force += 1;
 			this.sante -= 1;
 			System.out.println("Le resultat de la BAGARRE est de "+	resultatCombat1 + " pour "+ this.nom + " et "+ resultatCombat2 +" pour "+joueur.nom 
-					+ " a un resultat de "+ resultatCombat2 +"\n" +joueur.nom + " gagne +1 de force et passe a "+ joueur.force +", tandis que "
+					+ "\n" +joueur.nom + " gagne +1 de force et passe a "+ joueur.force +", tandis que "
 					+ this.nom + ", perde -1 de vie, il passe a "+ this.sante +". \n ");
 			joueur.changerArme();
 			this.changerArme();
