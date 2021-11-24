@@ -56,7 +56,7 @@ public class Joueur {
 		if(resultatCombat1 > resultatCombat2) {
 			this.force += 1;
 			joueur.sante -= 1;
-			System.out.println("Le resultat de la BAGARRE est de "+	resultatCombat1 + " pour "+ this.nom + " et "+ resultatCombat2 +" pour "+joueur.nom 
+			System.out.println("\nLe resultat de la BAGARRE est de "+	resultatCombat1 + " pour "+ this.nom + " et "+ resultatCombat2 +" pour "+joueur.nom 
 					+"\n" +this.nom + " gagne +1 de force et passe a "+ this.force +", tandis que "
 					+ joueur.nom + ", perde -1 de vie, il passe a "+ joueur.sante +". \n ");
 			this.changerArme();
@@ -65,7 +65,7 @@ public class Joueur {
 		else if(resultatCombat1 < resultatCombat2){
 			joueur.force += 1;
 			this.sante -= 1;
-			System.out.println("Le resultat de la BAGARRE est de "+	resultatCombat1 + " pour "+ this.nom + " et "+ resultatCombat2 +" pour "+joueur.nom 
+			System.out.println("\nLe resultat de la BAGARRE est de "+	resultatCombat1 + " pour "+ this.nom + " et "+ resultatCombat2 +" pour "+joueur.nom 
 					+ "\n" +joueur.nom + " gagne +1 de force et passe a "+ joueur.force +", tandis que "
 					+ this.nom + ", perde -1 de vie, il passe a "+ this.sante +". \n ");
 			joueur.changerArme();
@@ -156,8 +156,8 @@ public class Joueur {
 			if(result >= 5) {
 				this.pouvoir = true;
 				this.force += 95;
-				System.out.println("\n ***"+ this.nom + " a honte de voir "+ joueur.nom + " gagner, "+ this.nom + " a la rage et veux tout casser, il gagne"
-						+ " + 95 de force \n**");
+				System.out.println("\n***"+ this.nom + " a honte de voir "+ joueur.nom + " gagner, "+ this.nom + " a la rage et veux tout casser, il gagne"
+						+ " + 95 de force*** \n");
 			}
 		}
 		if(this.pouvoir == true && this.pouvoir == false) {
@@ -165,8 +165,8 @@ public class Joueur {
 			if(result >= 5) {
 				joueur.pouvoir = true;
 				joueur.force += 95;
-				System.out.println("\n ***"+ this.nom + " a honte de voir "+ joueur.nom + " gagner, "+ this.nom + " a la rage et veux tout casser, il gagne"
-						+ " + 95 de force \n**");
+				System.out.println("\n***"+ this.nom + " a honte de voir "+ joueur.nom + " gagner, "+ this.nom + " a la rage et veux tout casser, il gagne"
+						+ " + 95 de force*** \n");
 			}
 		}
 	}
